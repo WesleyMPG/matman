@@ -1,0 +1,58 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Sprites/pacman/walk/pacman4.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/pacman/death/pacman_death2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/pacman/death/pacman_death1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/pacman/walk/pacman2.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/pacman/walk/pacman3.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/pacman/walk/pacman1.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/pacman/death/pacman_death3.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/pacman/death/pacman_death4.png" type="Texture" id=8]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "walk",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "death",
+"speed": 4.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 49.0618
+
+[node name="Player" type="KinematicBody2D" groups=[
+"players",
+]]
+position = Vector2( 329.41, 218.373 )
+collision_layer = 15
+collision/safe_margin = 0.1
+script = ExtResource( 9 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "walk"
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+modulate = Color( 0.32549, 0.745098, 1, 1 )
+self_modulate = Color( 0, 0.0705882, 0.866667, 1 )
+shape = SubResource( 2 )
+one_way_collision_margin = 0.0
+
+[node name="Mouth" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mouth"]
+position = Vector2( 2.09061, 12.5437 )
+polygon = PoolVector2Array( -1.25198, -21.7628, -41.8098, -49.3589, 35.9608, -49.3589 )
+[connection signal="area_entered" from="Mouth" to="." method="_on_Mouth_area_entered"]

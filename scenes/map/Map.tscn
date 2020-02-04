@@ -1,0 +1,519 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/map/TileSet.tres" type="TileSet" id=1]
+[ext_resource path="res://scripts/Map.gd" type="Script" id=2]
+[ext_resource path="res://scenes/map/Pill.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9.85042, 48.721 )
+
+[node name="Map" type="Node2D"]
+scale = Vector2( 0.323016, 0.323016 )
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -83.9658
+margin_top = -57.5891
+margin_right = 1981.03
+margin_bottom = 2171.41
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Maps" type="Node2D" parent="."]
+
+[node name="Walls" type="TileMap" parent="Maps"]
+scale = Vector2( 1, 1 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 100, 100 )
+collision_friction = 0.0
+format = 1
+tile_data = PoolIntArray( 0, 2, 0, 1, -536870911, 0, 2, -536870911, 0, 3, -536870911, 0, 4, -536870911, 0, 5, -536870911, 0, 6, -536870911, 0, 7, -536870911, 0, 8, -536870911, 0, 9, 1073741827, 0, 10, -2147483647, 0, 11, -536870911, 0, 12, -536870911, 0, 13, -536870911, 0, 14, -536870911, 0, 15, -536870911, 0, 16, -536870911, 0, 17, -536870911, 0, 18, 536870914, 0, 65536, 1073741825, 0, 65545, 536870913, 0, 65554, 1073741825, 0, 131072, 1073741825, 0, 131074, -2147483648, 0, 131075, -536870912, 0, 131077, -2147483648, 0, 131078, -536870911, 0, 131079, -536870912, 0, 131081, 1073741824, 0, 131083, -2147483648, 0, 131084, -536870911, 0, 131085, -536870912, 0, 131087, -2147483648, 0, 131088, -536870912, 0, 131090, 1073741825, 0, 196608, 1073741825, 0, 196626, 1073741825, 0, 262144, 1073741825, 0, 262146, -2147483648, 0, 262147, -536870912, 0, 262149, 536870912, 0, 262151, -2147483648, 0, 262152, -536870911, 0, 262153, 1073741827, 0, 262154, -536870911, 0, 262155, -536870912, 0, 262157, 536870912, 0, 262159, -2147483648, 0, 262160, -536870912, 0, 262162, 1073741825, 0, 327680, 1073741825, 0, 327685, 1073741825, 0, 327689, 1073741825, 0, 327693, 1073741825, 0, 327698, 1073741825, 0, 393216, 1073741826, 0, 393217, -2147483647, 0, 393218, -2147483647, 0, 393219, 536870914, 0, 393221, -536870909, 0, 393222, -536870911, 0, 393223, -536870912, 0, 393225, 1073741824, 0, 393227, -2147483648, 0, 393228, -536870911, 0, 393229, -2147483645, 0, 393231, -2147483646, 0, 393232, -536870911, 0, 393233, -536870911, 0, 393234, -536870910, 0, 458755, 536870913, 0, 458757, 1073741825, 0, 458765, 1073741825, 0, 458767, 536870913, 0, 524288, -536870911, 0, 524289, -536870911, 0, 524290, -536870911, 0, 524291, -536870910, 0, 524293, 1073741824, 0, 524295, -2147483646, 0, 524296, -536870912, 0, 524298, -2147483648, 0, 524299, 536870914, 0, 524301, 1073741824, 0, 524303, 1073741826, 0, 524304, -536870911, 0, 524305, -536870911, 0, 524306, -536870911, 0, 589831, 536870913, 0, 589835, 536870913, 0, 655360, -536870911, 0, 655361, -536870911, 0, 655362, -536870911, 0, 655363, 536870914, 0, 655365, 536870912, 0, 655367, 1073741826, 0, 655368, -536870911, 0, 655369, -536870911, 0, 655370, -536870911, 0, 655371, -536870910, 0, 655373, 536870912, 0, 655375, -2147483646, 0, 655376, -536870911, 0, 655377, -536870911, 0, 655378, -536870911, 0, 720899, 536870913, 0, 720901, 536870913, 0, 720909, 536870913, 0, 720911, 536870913, 0, 786432, -2147483646, 0, 786433, -536870911, 0, 786434, -536870911, 0, 786435, -536870910, 0, 786437, 1073741824, 0, 786439, -2147483648, 0, 786440, -536870911, 0, 786441, 1073741827, 0, 786442, -536870911, 0, 786443, -536870912, 0, 786445, 1073741824, 0, 786447, 1073741826, 0, 786448, -536870911, 0, 786449, -536870911, 0, 786450, 536870914, 0, 851968, 536870913, 0, 851977, 1073741825, 0, 851986, 536870913, 0, 917504, 536870913, 0, 917506, -2147483648, 0, 917507, 536870914, 0, 917509, -2147483648, 0, 917510, -536870911, 0, 917511, -536870912, 0, 917513, 1073741824, 0, 917515, -2147483648, 0, 917516, -536870911, 0, 917517, -536870912, 0, 917519, -2147483646, 0, 917520, -536870912, 0, 917522, 536870913, 0, 983040, 536870913, 0, 983043, 536870913, 0, 983055, 536870913, 0, 983058, 536870913, 0, 1048576, -536870909, 0, 1048577, -536870912, 0, 1048579, 1073741824, 0, 1048581, 536870912, 0, 1048583, -2147483648, 0, 1048584, -536870911, 0, 1048585, 1073741827, 0, 1048586, -536870911, 0, 1048587, -536870912, 0, 1048589, 536870912, 0, 1048591, 1073741824, 0, 1048593, -2147483648, 0, 1048594, -2147483645, 0, 1114112, 536870913, 0, 1114117, 536870913, 0, 1114121, 1073741825, 0, 1114125, 1073741825, 0, 1114130, 536870913, 0, 1179648, 536870913, 0, 1179650, -2147483648, 0, 1179651, -536870911, 0, 1179652, -536870911, 0, 1179653, 536870915, 0, 1179654, -536870911, 0, 1179655, -536870912, 0, 1179657, 1073741824, 0, 1179659, -2147483648, 0, 1179660, -536870911, 0, 1179661, 536870915, 0, 1179662, -536870911, 0, 1179663, -536870911, 0, 1179664, -536870912, 0, 1179666, 536870913, 0, 1245184, 536870913, 0, 1245202, 536870913, 0, 1310720, 1073741826, 0, 1310721, -536870911, 0, 1310722, -536870911, 0, 1310723, -536870911, 0, 1310724, -536870911, 0, 1310725, -536870911, 0, 1310726, -536870911, 0, 1310727, -536870911, 0, 1310728, -536870911, 0, 1310729, -536870911, 0, 1310730, -536870911, 0, 1310731, -536870911, 0, 1310732, -536870911, 0, 1310733, -536870911, 0, 1310734, -536870911, 0, 1310735, -536870911, 0, 1310736, -536870911, 0, 1310737, -536870911, 0, 1310738, -536870910, 0 )
+
+[node name="Teleports" type="Node2D" parent="."]
+
+[node name="Left" type="Area2D" parent="Teleports"]
+position = Vector2( 95.0571, 949.493 )
+scale = Vector2( 1, 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleports/Left"]
+shape = SubResource( 1 )
+
+[node name="Right" type="Area2D" parent="Teleports"]
+position = Vector2( 1776.56, 948.897 )
+scale = Vector2( 1, 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleports/Right"]
+position = Vector2( 18.05, 0.949951 )
+shape = SubResource( 1 )
+
+[node name="Spaws" type="Node2D" parent="."]
+
+[node name="Player" type="Position2D" parent="Spaws"]
+position = Vector2( 941.343, 1554.52 )
+scale = Vector2( 1, 1 )
+
+[node name="Ghost" type="Position2D" parent="Spaws"]
+position = Vector2( 945.541, 949.544 )
+scale = Vector2( 1, 1 )
+
+[node name="Pills" type="Node2D" parent="."]
+
+[node name="Pill" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 150.058, 1949.9 )
+
+[node name="Pill2" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 250.208, 1950.21 )
+
+[node name="Pill4" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 349.877, 1949.67 )
+
+[node name="Pill28" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 150.058, 1750.09 )
+
+[node name="Pill27" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 250.208, 1750.09 )
+
+[node name="Pill26" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 349.877, 1750.09 )
+
+[node name="Pill48" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 150.057, 1349.81 )
+
+[node name="Pill47" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 250.208, 1349.81 )
+
+[node name="Pill46" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 349.877, 1349.81 )
+
+[node name="Pill51" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 150.057, 549.833 )
+
+[node name="Pill50" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 250.208, 549.833 )
+
+[node name="Pill49" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 349.877, 549.833 )
+
+[node name="Pill54" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 150.057, 149.689 )
+
+[node name="Pill53" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 250.208, 149.689 )
+
+[node name="Pill52" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 349.877, 149.689 )
+
+[node name="Pill57" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 150.058, 349.893 )
+
+[node name="Pill56" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 250.208, 349.893 )
+
+[node name="Pill55" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 349.877, 349.893 )
+
+[node name="Pill29" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 450.027, 1750.09 )
+
+[node name="Pill30" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 450.027, 1650.34 )
+
+[node name="Pill32" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 450.027, 1549.84 )
+
+[node name="Pill31" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 450.027, 1450.09 )
+
+[node name="Pill34" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 450.027, 1349.81 )
+
+[node name="Pill33" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 450.027, 1250.06 )
+
+[node name="Pill36" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 450.027, 1149.49 )
+
+[node name="Pill35" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 450.027, 1049.74 )
+
+[node name="Pill38" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 450.027, 950.009 )
+
+[node name="Pill37" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 450.027, 850.261 )
+
+[node name="Pill40" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 450.027, 749.772 )
+
+[node name="Pill39" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 450.027, 650.024 )
+
+[node name="Pill123" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1449.86, 1250.06 )
+
+[node name="Pill122" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1449.86, 1149.49 )
+
+[node name="Pill121" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1449.86, 1049.74 )
+
+[node name="Pill120" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1449.86, 950.009 )
+
+[node name="Pill119" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1449.86, 850.261 )
+
+[node name="Pill118" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1449.86, 749.772 )
+
+[node name="Pill117" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1449.86, 650.024 )
+
+[node name="Pill42" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 450.027, 549.833 )
+
+[node name="Pill41" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 450.027, 450.085 )
+
+[node name="Pill113" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 650.133, 450.085 )
+
+[node name="Pill114" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1250.26, 450.085 )
+
+[node name="Pill115" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1450.36, 450.085 )
+
+[node name="Pill116" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1750.12, 450.085 )
+
+[node name="Pill58" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 150.057, 450.085 )
+
+[node name="Pill59" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 150.057, 250.145 )
+
+[node name="Pill44" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 450.027, 349.893 )
+
+[node name="Pill43" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 450.027, 250.145 )
+
+[node name="Pill85" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 849.953, 250.145 )
+
+[node name="Pill86" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1050.44, 250.145 )
+
+[node name="Pill87" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1450.36, 250.145 )
+
+[node name="Pill88" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1750.12, 250.145 )
+
+[node name="Pill45" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 450.027, 149.689 )
+
+[node name="Pill3" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 450.027, 1949.97 )
+
+[node name="Pill8" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 549.983, 1949.9 )
+
+[node name="Pill7" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 650.133, 1950.21 )
+
+[node name="Pill6" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 749.803, 1949.67 )
+
+[node name="Pill5" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 849.953, 1949.97 )
+
+[node name="Pill16" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 950.286, 1950.17 )
+
+[node name="Pill15" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1050.44, 1950.47 )
+
+[node name="Pill14" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1150.11, 1949.93 )
+
+[node name="Pill13" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1250.26, 1950.23 )
+
+[node name="Pill148" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1050.44, 1751.56 )
+
+[node name="Pill147" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1150.59, 1751.87 )
+
+[node name="Pill150" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 749.803, 1751.87 )
+
+[node name="Pill149" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 849.953, 1752.17 )
+
+[node name="Pill12" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1350.21, 1950.17 )
+
+[node name="Pill11" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1450.36, 1950.47 )
+
+[node name="Pill10" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1550.03, 1949.93 )
+
+[node name="Pill9" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1650.18, 1950.23 )
+
+[node name="Pill17" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1750.12, 1950.23 )
+
+[node name="Pill131" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1750.12, 1550.95 )
+
+[node name="Pill133" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1650.18, 1650.7 )
+
+[node name="Pill135" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 150.058, 1550.95 )
+
+[node name="Pill137" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 250.208, 1650.7 )
+
+[node name="Pill139" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 650.133, 1751.56 )
+
+[node name="Pill141" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1250.52, 1751.21 )
+
+[node name="Pill72" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 549.983, 350.13 )
+
+[node name="Pill71" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 650.133, 350.435 )
+
+[node name="Pill70" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 749.803, 349.893 )
+
+[node name="Pill69" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 849.953, 350.197 )
+
+[node name="Pill84" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 549.983, 150.469 )
+
+[node name="Pill83" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 650.133, 150.773 )
+
+[node name="Pill82" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 749.803, 150.231 )
+
+[node name="Pill81" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 849.953, 150.535 )
+
+[node name="Pill68" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 950.286, 350.394 )
+
+[node name="Pill67" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1050.44, 350.698 )
+
+[node name="Pill66" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1150.11, 350.156 )
+
+[node name="Pill65" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1250.26, 350.461 )
+
+[node name="Pill64" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1350.21, 350.394 )
+
+[node name="Pill63" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1450.36, 350.698 )
+
+[node name="Pill62" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1550.03, 350.156 )
+
+[node name="Pill61" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1650.18, 350.461 )
+
+[node name="Pill60" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1750.12, 350.461 )
+
+[node name="Pill80" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1050.44, 150.231 )
+
+[node name="Pill79" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1150.11, 149.689 )
+
+[node name="Pill78" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1250.26, 149.994 )
+
+[node name="Pill77" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1350.21, 149.927 )
+
+[node name="Pill76" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1450.36, 150.231 )
+
+[node name="Pill75" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1550.03, 149.689 )
+
+[node name="Pill74" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1650.18, 149.994 )
+
+[node name="Pill73" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1750.12, 149.994 )
+
+[node name="Pill22" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1750.12, 1849.37 )
+
+[node name="Pill130" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1750.12, 1450.09 )
+
+[node name="Pill132" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1650.18, 1549.84 )
+
+[node name="Pill134" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 150.058, 1450.09 )
+
+[node name="Pill136" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 250.208, 1549.84 )
+
+[node name="Pill138" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 650.133, 1650.7 )
+
+[node name="Pill140" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1250.52, 1650.34 )
+
+[node name="Pill23" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1050.44, 1849.37 )
+
+[node name="Pill24" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 849.953, 1849.37 )
+
+[node name="Pill25" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 150.057, 1849.37 )
+
+[node name="Pill21" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1450.36, 1751.11 )
+
+[node name="Pill20" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1550.03, 1750.57 )
+
+[node name="Pill19" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1650.18, 1750.87 )
+
+[node name="Pill18" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1750.12, 1750.87 )
+
+[node name="Pill92" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1450.36, 1350.35 )
+
+[node name="Pill91" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1550.03, 1349.81 )
+
+[node name="Pill90" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1650.18, 1350.12 )
+
+[node name="Pill89" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1750.12, 1350.12 )
+
+[node name="Pill96" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 549.983, 1350.9 )
+
+[node name="Pill95" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 649.653, 1350.35 )
+
+[node name="Pill94" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 749.803, 1350.66 )
+
+[node name="Pill93" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 849.74, 1350.66 )
+
+[node name="Pill100" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 549.983, 1555.06 )
+
+[node name="Pill99" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 649.653, 1554.52 )
+
+[node name="Pill98" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 749.803, 1554.82 )
+
+[node name="Pill97" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 849.74, 1554.82 )
+
+[node name="Pill104" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1150.1, 1555.6 )
+
+[node name="Pill142" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1050.44, 1549.84 )
+
+[node name="Pill143" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1050.44, 1450.09 )
+
+[node name="Pill144" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 850.221, 1450.09 )
+
+[node name="Pill145" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1449.86, 1450.09 )
+
+[node name="Pill146" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1449.86, 1650.7 )
+
+[node name="Pill103" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1249.78, 1555.06 )
+
+[node name="Pill102" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1349.92, 1555.37 )
+
+[node name="Pill101" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1449.86, 1555.37 )
+
+[node name="Pill108" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1050.44, 1351.44 )
+
+[node name="Pill107" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1150.11, 1350.9 )
+
+[node name="Pill106" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1250.26, 1351.2 )
+
+[node name="Pill105" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1350.19, 1351.2 )
+
+[node name="Pill112" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1450.36, 550.375 )
+
+[node name="Pill111" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1550.03, 549.833 )
+
+[node name="Pill110" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1650.18, 550.137 )
+
+[node name="Pill109" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1750.12, 550.137 )
+
+[node name="Pill126" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1050.44, 549.833 )
+
+[node name="Pill125" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1150.59, 550.137 )
+
+[node name="Pill124" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 1250.52, 550.137 )
+
+[node name="Pill129" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 650.133, 550.375 )
+
+[node name="Pill128" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 750.283, 550.679 )
+
+[node name="Pill127" parent="Pills" instance=ExtResource( 4 )]
+position = Vector2( 850.221, 550.679 )
+[connection signal="body_entered" from="Teleports/Left" to="." method="_on_LeftTp_body_entered"]
+[connection signal="body_entered" from="Teleports/Right" to="." method="_on_RightTp_body_entered"]
