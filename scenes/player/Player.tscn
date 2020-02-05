@@ -20,7 +20,7 @@ animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "walk",
-"speed": 8.0
+"speed": 16.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
@@ -29,14 +29,14 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 49.0618
+radius = 51.5152
 
 [node name="Player" type="KinematicBody2D" groups=[
 "players",
 ]]
 position = Vector2( 329.41, 218.373 )
 collision_layer = 15
-collision/safe_margin = 0.1
+collision/safe_margin = 0.2
 script = ExtResource( 9 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]

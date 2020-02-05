@@ -1,20 +1,22 @@
 extends KinematicBody2D
 
 onready var config = get_node('/root/config').playerConfigs
+onready var gameStatus = get_node('/root/config').gameStatus
 
 var alive = true
 onready var SPEED = config['speed']
 onready var lives = config['lives'] 
-var velocity
+var velocity = Vector2(0,0)
 
 signal justAteAPill
 signal ansewered
+signal gotHit
 
 func _ready():
 	restart()	
 
 func _process(delta):
-	if alive:
+	if get_node('/root/config').gameStatus['playing'] and alive:
 		_movement(delta)
 		
 func _movement(delta):
@@ -35,20 +37,25 @@ func _movement(delta):
 		velocity = Vector2(0, realWalkDistance)
 		rotation_degrees = 180
 		$Sprite.play('walk')
-	else:
-		velocity = Vector2(0, 0)
 	move_and_slide(velocity)
 
 func take_damage():
-	alive = false
-	$Sprite.play('death')
-	visible = false
+	if alive:
+		alive = false
+		$Sprite.play('death')
+		visible = false
+		lives -= 1
+		emit_signal("gotHit", lives)
 
 func restart():
 	alive = true
 	$Sprite.play('idle')
 	visible = true
 	rotation_degrees = 90
+
+func reset():
+	restart()
+	lives = config['lives']
 
 func _on_Mouth_area_entered(area):
 	if area.is_in_group('eatbles'):

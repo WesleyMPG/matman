@@ -8,6 +8,7 @@
 extents = Vector2( 9.85042, 48.721 )
 
 [node name="Map" type="Node2D"]
+position = Vector2( 355.319, 21.169 )
 scale = Vector2( 0.323016, 0.323016 )
 script = ExtResource( 2 )
 
@@ -53,16 +54,6 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleports/Right"]
 position = Vector2( 18.05, 0.949951 )
 shape = SubResource( 1 )
-
-[node name="Spaws" type="Node2D" parent="."]
-
-[node name="Player" type="Position2D" parent="Spaws"]
-position = Vector2( 941.343, 1554.52 )
-scale = Vector2( 1, 1 )
-
-[node name="Ghost" type="Position2D" parent="Spaws"]
-position = Vector2( 945.541, 949.544 )
-scale = Vector2( 1, 1 )
 
 [node name="Pills" type="Node2D" parent="."]
 

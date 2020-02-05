@@ -3,10 +3,12 @@ extends Control
 onready var config = get_node('/root/config')
 onready var NUMBER_OF_SOCREBOARD_DIGITS = config.hudConfigs['scoreboardNumberOfDigits']
 const Life = preload('res://scenes/player/Life.tscn')
-var livesDisplay = []
+var livesDisplayList = []
+
+signal messageHidden
 
 func _ready():
-	$Scoreboard.text = _complete_score_digits(0)
+	update_score(0)
 	_display_player_lives()
 
 func _check_number_of_digits(value):
@@ -38,13 +40,35 @@ func _display_player_lives():
 	var lastLifeAdded
 	for i in config.playerConfigs['lives']:
 		instance = Life.instance()
-
-#		lastLifeAdded = livesDisplay.back()
-#		if lastLifeAdded != null:
-#			instance.position.x = lastLifeAdded.position.x + 45
-#		livesDisplay.append(instance)
+		lastLifeAdded = livesDisplayList.back()
+		if lastLifeAdded != null:
+			instance.position.x = lastLifeAdded.position.x + 45
+		livesDisplayList.append(instance)
 		$LivesIndicator.add_child(instance)
-		$LivesIndicator.add_spacer(true)
-		
+
+func display_won_message():
+	var timer = Timer.new()
+	timer.one_shot = true
+	add_child(timer)
+	timer.start(3)
+	timer.connect('timeout', self, 'hide_won_message')
+	$GameWon.visible = true
+
+func hide_won_message():
+	$GameWon.visible = false
+	emit_signal('messageHidden')
+
 func update_player_lives(howManyLives):
-	pass
+	if howManyLives > livesDisplayList.size():
+		howManyLives = config.playerConfigs['lives']
+	for i in range(livesDisplayList.size()):
+		if i < howManyLives:
+			if !livesDisplayList[i].visible:
+				livesDisplayList[i].visible = true
+		else:
+			livesDisplayList[i].visible = false
+
+func reset():
+	$GameOver.visible = false
+	$GameWon.visible = false
+	update_score(0)

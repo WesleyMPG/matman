@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/map/Map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Hud.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/menu_and_display/Hud.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/Playing.gd" type="Script" id=4]
 
 [node name="Main" type="Node2D"]
@@ -20,9 +20,20 @@ __meta__ = {
 position = Vector2( 355.319, 21.1695 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 659.99, 520.039 )
+position = Vector2( 660.785, 521.792 )
 scale = Vector2( 0.3, 0.3 )
 collision_layer = 1
+collision/safe_margin = 0.1
 
 [node name="Hud" parent="." instance=ExtResource( 3 )]
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="Player" type="Position2D" parent="Spawns"]
+position = Vector2( 660.784, 521.792 )
+
+[node name="Ghosts" type="Position2D" parent="Spawns"]
+position = Vector2( 662.277, 327.678 )
+[connection signal="gotHit" from="Player" to="." method="_on_Player_gotHit"]
 [connection signal="justAteAPill" from="Player" to="." method="_on_Player_justAteAPill"]
+[connection signal="messageHidden" from="Hud" to="." method="_on_Hud_messageHidden"]

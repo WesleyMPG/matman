@@ -13,7 +13,8 @@ func was_eaten():
 	remove_from_group('eatbles')
 	add_to_group('eaten')
 	
-func restart():
+func reset():
 	visible = true
 	$CollisionShape2D.disabled = false
-	
+	remove_from_group('eaten')
+	add_to_group('eatbles')
