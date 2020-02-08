@@ -41,6 +41,12 @@ func start():
 	$Hud/Ready.visible = false
 	get_node('/root/config').gameStatus['playing'] = true
 
-
 func _on_Hud_messageHidden():
 	reset()
+
+func _on_Player_ansewered(ansewer):
+	var score = $Hud.get_score()
+	if ansewer.get_value() == $Tabuada.ansewer:
+		$Hud.update_score(score * 2)
+	else:
+		$Hud.update_score(score - score / 5)

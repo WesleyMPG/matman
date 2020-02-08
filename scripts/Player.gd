@@ -60,4 +60,7 @@ func reset():
 func _on_Mouth_area_entered(area):
 	if area.is_in_group('eatbles'):
 		area.was_eaten()
-		emit_signal("justAteAPill", area)
+		if (area.is_in_group('ansewers')):
+			emit_signal("ansewered", area)
+		else:
+			emit_signal("justAteAPill", area)

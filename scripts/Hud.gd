@@ -68,6 +68,9 @@ func update_player_lives(howManyLives):
 		else:
 			livesDisplayList[i].visible = false
 
+func get_score():
+	return int($Scoreboard.text)
+
 func reset():
 	$GameOver.visible = false
 	$GameWon.visible = false
