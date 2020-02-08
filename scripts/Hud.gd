@@ -9,6 +9,7 @@ signal messageHidden
 
 func _ready():
 	update_score(0)
+	update_tabuada_display(0, 0)
 	_display_player_lives()
 
 func _check_number_of_digits(value):
@@ -40,8 +41,8 @@ func _display_player_lives():
 	var lastLifeAdded
 	for i in config.playerConfigs['lives']:
 		instance = Life.instance()
-		lastLifeAdded = livesDisplayList.back()
-		if lastLifeAdded != null:
+		if livesDisplayList.size() > 0:
+			lastLifeAdded = livesDisplayList.back()
 			instance.position.x = lastLifeAdded.position.x + 45
 		livesDisplayList.append(instance)
 		$LivesIndicator.add_child(instance)
@@ -67,6 +68,9 @@ func update_player_lives(howManyLives):
 				livesDisplayList[i].visible = true
 		else:
 			livesDisplayList[i].visible = false
+
+func update_tabuada_display(a, b):
+	$TabuadaDisplay.text = str(a) + 'X' + str(b)
 
 func get_score():
 	return int($Scoreboard.text)

@@ -40,9 +40,16 @@ func reset():
 func start():
 	$Hud/Ready.visible = false
 	get_node('/root/config').gameStatus['playing'] = true
+	_update_tabuada()
 
 func _on_Hud_messageHidden():
 	reset()
+	
+func _update_tabuada():
+	var conta = $Tabuada.random_conta()
+	var ansewers = $Tabuada.get_possible_ansewers()
+	$Hud.update_tabuada_display(conta[0], conta[1])
+	#$Map.update_ansewers(ansewers)
 
 func _on_Player_ansewered(ansewer):
 	var score = $Hud.get_score()
@@ -50,3 +57,4 @@ func _on_Player_ansewered(ansewer):
 		$Hud.update_score(score * 2)
 	else:
 		$Hud.update_score(score - score / 5)
+	_update_tabuada()

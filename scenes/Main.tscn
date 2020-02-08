@@ -10,31 +10,55 @@
 script = ExtResource( 4 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1380.0
-margin_bottom = 724.0
+margin_right = 725.0
+margin_bottom = 821.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Map" parent="." instance=ExtResource( 1 )]
-position = Vector2( 355.319, 21.1695 )
+position = Vector2( 55.3241, 86.1718 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 660.785, 521.792 )
+position = Vector2( 360.79, 586.794 )
 scale = Vector2( 0.3, 0.3 )
 collision_layer = 1
 collision/safe_margin = 0.1
 
+[node name="HideRight" type="ColorRect" parent="."]
+margin_left = 600.0
+margin_top = 377.68
+margin_right = 990.0
+margin_bottom = 942.68
+rect_scale = Vector2( 0.136639, 0.0542359 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HideLeft" type="ColorRect" parent="."]
+margin_left = 77.0
+margin_top = 377.416
+margin_right = 434.0
+margin_bottom = 942.416
+rect_scale = Vector2( 0.136639, 0.0542359 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Hud" parent="." instance=ExtResource( 3 )]
+margin_left = -14.1875
+margin_right = -14.1875
 
 [node name="Spawns" type="Node2D" parent="."]
 
 [node name="Player" type="Position2D" parent="Spawns"]
-position = Vector2( 660.784, 521.792 )
+position = Vector2( 361.141, 586.87 )
 
 [node name="Ghosts" type="Position2D" parent="Spawns"]
-position = Vector2( 662.277, 327.678 )
+position = Vector2( 362.634, 392.756 )
 
 [node name="Tabuada" parent="." instance=ExtResource( 5 )]
 [connection signal="ansewered" from="Player" to="." method="_on_Player_ansewered"]

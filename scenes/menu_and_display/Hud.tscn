@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/fonts/ARCADE_N.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/Hud.gd" type="Script" id=2]
@@ -7,6 +7,11 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+extra_spacing_char = 14
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -23,9 +28,9 @@ __meta__ = {
 
 [node name="Scoreboard" type="Label" parent="."]
 margin_left = 71.0
-margin_top = 17.0
+margin_top = 8.13573
 margin_right = 274.0
-margin_bottom = 43.0
+margin_bottom = 34.1357
 custom_fonts/font = SubResource( 1 )
 text = "0000000"
 max_lines_visible = 1
@@ -33,21 +38,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TabuadaDisplay" type="Label" parent="."]
+margin_left = 468.698
+margin_top = 8.13573
+margin_right = 508.698
+margin_bottom = 41.1357
+custom_fonts/font = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="LivesIndicator" type="HBoxContainer" parent="."]
 margin_left = 68.5159
-margin_top = 52.8336
+margin_top = 35.1051
 margin_right = 214.516
-margin_bottom = 97.8336
+margin_bottom = 80.1051
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Ready" type="Label" parent="."]
 modulate = Color( 1, 0.933333, 0.231373, 1 )
-margin_left = 610.0
-margin_top = 385.0
-margin_right = 742.0
-margin_bottom = 411.0
+margin_left = 313.829
+margin_top = 448.645
+margin_right = 445.829
+margin_bottom = 474.645
 custom_fonts/font = SubResource( 2 )
 text = "Ready!"
 max_lines_visible = 1
@@ -57,10 +72,10 @@ __meta__ = {
 
 [node name="GameOver" type="Sprite" parent="."]
 visible = false
-position = Vector2( 674.63, 367.048 )
+position = Vector2( 379.899, 367.048 )
 texture = ExtResource( 3 )
 
 [node name="GameWon" type="Sprite" parent="."]
 visible = false
-position = Vector2( 674.63, 367.048 )
+position = Vector2( 381.007, 367.048 )
 texture = ExtResource( 4 )
