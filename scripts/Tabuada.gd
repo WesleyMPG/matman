@@ -53,17 +53,27 @@ func _get_random_ansewers():
 	listOfAsewers.append(ansewer)
 	return listOfAsewers
 
-func _randomise_positions(listOfAnsewers):
+func _randomize_positions(listOfAnsewers):
 	randomize()
-	print(listOfAnsewers)
-	var newList = []
+	var newList = [0, 0, 0, 0]
+	var positions = []
 	var pos
-	while newList.size() < 4:
-		pos = randi() % N_OF_POSSIBLE_ANSEWERS
-		if not listOfAnsewers[pos] in newList:
-			newList.append(listOfAnsewers[pos])
+	for i in range(2):
+		while true:
+			pos = randi() % N_OF_POSSIBLE_ANSEWERS
+			if not pos in positions: break
+		positions.append(pos)
+	newList[positions[0]] = listOfAnsewers[listOfAnsewers.size() - 1]
+	newList[positions[1]] = listOfAnsewers[listOfAnsewers.size() - 2]
+	var count = 0
+	for i in range(listOfAnsewers.size()):
+		if newList[i] == 0:
+			newList[i] = listOfAnsewers[count]
+			count += 1
+	return newList
 
 func get_possible_ansewers():
 	var listOfAsewers = _get_random_ansewers()
-	return _randomise_positions(listOfAsewers)
+	#return listOfAsewers
+	return _randomize_positions(listOfAsewers)
 	

@@ -28,6 +28,8 @@ config="*res://config.gd"
 window/size/width=720
 window/size/height=810
 window/handheld/orientation="portrait"
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [rendering]
 
