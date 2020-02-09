@@ -46,15 +46,22 @@ func _on_Hud_messageHidden():
 	reset()
 	
 func _update_tabuada():
-	var conta = $Tabuada.random_conta()
-	var ansewers = $Tabuada.get_possible_ansewers()
-	$Hud.update_tabuada_display(conta[0], conta[1])
-	#$Map.update_ansewers(ansewers)
+	var ansewers
+	if get_tree().get_nodes_in_group('ansewers').size() > 1:
+		var conta = $Tabuada.random_conta()
+		ansewers = $Tabuada.get_possible_ansewers()
+		$Hud.update_tabuada_display(conta[0], conta[1])
+	else:
+		ansewers = []
+		$Hud.update_tabuada_display(0, 0)
+	$Map.update_ansewers(ansewers)
 
 func _on_Player_ansewered(ansewer):
 	var score = $Hud.get_score()
-	if ansewer.get_value() == $Tabuada.ansewer:
-		$Hud.update_score(score * 2)
+	if ansewer == $Tabuada.ansewer:
+		$Hud.update_score(score)
+	elif ansewer == 0:
+		pass
 	else:
-		$Hud.update_score(score - score / 5)
+		$Hud.update_score(-score / 5)
 	_update_tabuada()

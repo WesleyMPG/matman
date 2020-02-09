@@ -70,7 +70,12 @@ func update_player_lives(howManyLives):
 			livesDisplayList[i].visible = false
 
 func update_tabuada_display(a, b):
-	$TabuadaDisplay.text = str(a) + 'X' + str(b)
+	var display
+	if get_tree().get_nodes_in_group('ansewers').size() > 1:
+		display = str(a) + 'X' + str(b)
+	else:
+		display = '0X0'
+	$TabuadaDisplay.text = display
 
 func get_score():
 	return int($Scoreboard.text)

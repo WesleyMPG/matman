@@ -9,12 +9,12 @@
 size = 25
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 32
 extra_spacing_char = 14
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 22
 font_data = ExtResource( 1 )
 
@@ -43,7 +43,7 @@ margin_left = 468.698
 margin_top = 8.13573
 margin_right = 508.698
 margin_bottom = 41.1357
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -63,7 +63,7 @@ margin_left = 313.829
 margin_top = 448.645
 margin_right = 445.829
 margin_bottom = 474.645
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "Ready!"
 max_lines_visible = 1
 __meta__ = {

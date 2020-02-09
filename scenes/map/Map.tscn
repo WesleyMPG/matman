@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/map/TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://scripts/Map.gd" type="Script" id=2]
+[ext_resource path="res://scenes/map/BigPill.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/map/Pill.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/fonts/ARCADE_N.TTF" type="DynamicFontData" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 9.85042, 48.721 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 80
+font_data = ExtResource( 5 )
 
 [node name="Map" type="Node2D"]
 scale = Vector2( 0.323016, 0.323016 )
@@ -185,8 +191,9 @@ position = Vector2( 1750.12, 450.085 )
 [node name="Pill58" parent="Pills" instance=ExtResource( 4 )]
 position = Vector2( 150.057, 450.085 )
 
-[node name="Pill59" parent="Pills" instance=ExtResource( 4 )]
+[node name="BigPill" parent="Pills" instance=ExtResource( 3 )]
 position = Vector2( 150.057, 250.145 )
+scale = Vector2( 1, 1 )
 
 [node name="Pill44" parent="Pills" instance=ExtResource( 4 )]
 position = Vector2( 450.027, 349.893 )
@@ -203,8 +210,9 @@ position = Vector2( 1050.44, 250.145 )
 [node name="Pill87" parent="Pills" instance=ExtResource( 4 )]
 position = Vector2( 1450.36, 250.145 )
 
-[node name="Pill88" parent="Pills" instance=ExtResource( 4 )]
+[node name="BigPill2" parent="Pills" instance=ExtResource( 3 )]
 position = Vector2( 1750.12, 250.145 )
+scale = Vector2( 1, 1 )
 
 [node name="Pill45" parent="Pills" instance=ExtResource( 4 )]
 position = Vector2( 450.027, 149.689 )
@@ -356,8 +364,9 @@ position = Vector2( 1650.18, 149.994 )
 [node name="Pill73" parent="Pills" instance=ExtResource( 4 )]
 position = Vector2( 1750.12, 149.994 )
 
-[node name="Pill22" parent="Pills" instance=ExtResource( 4 )]
+[node name="BigPill4" parent="Pills" instance=ExtResource( 3 )]
 position = Vector2( 1750.12, 1849.37 )
+scale = Vector2( 1, 1 )
 
 [node name="Pill130" parent="Pills" instance=ExtResource( 4 )]
 position = Vector2( 1750.12, 1450.09 )
@@ -383,8 +392,9 @@ position = Vector2( 1050.44, 1849.37 )
 [node name="Pill24" parent="Pills" instance=ExtResource( 4 )]
 position = Vector2( 849.953, 1849.37 )
 
-[node name="Pill25" parent="Pills" instance=ExtResource( 4 )]
+[node name="BigPill3" parent="Pills" instance=ExtResource( 3 )]
 position = Vector2( 150.057, 1849.37 )
+scale = Vector2( 1, 1 )
 
 [node name="Pill21" parent="Pills" instance=ExtResource( 4 )]
 position = Vector2( 1450.36, 1751.11 )
@@ -502,5 +512,66 @@ position = Vector2( 750.283, 550.679 )
 
 [node name="Pill127" parent="Pills" instance=ExtResource( 4 )]
 position = Vector2( 850.221, 550.679 )
+
+[node name="Ansewers" type="Control" parent="."]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AswBp" type="Label" parent="Ansewers"]
+margin_left = -150.789
+margin_top = 210.262
+margin_right = 5.21094
+margin_bottom = 291.262
+custom_fonts/font = SubResource( 2 )
+text = "00"
+align = 1
+valign = 1
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AswBp2" type="Label" parent="Ansewers"]
+margin_left = 1905.81
+margin_top = 210.262
+margin_right = 2061.81
+margin_bottom = 291.262
+custom_fonts/font = SubResource( 2 )
+text = "00"
+align = 1
+valign = 1
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AswBp3" type="Label" parent="Ansewers"]
+margin_left = -150.789
+margin_top = 1818.44
+margin_right = 5.21094
+margin_bottom = 1899.44
+custom_fonts/font = SubResource( 2 )
+text = "00"
+align = 1
+valign = 1
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AswBp4" type="Label" parent="Ansewers"]
+margin_left = 1905.81
+margin_top = 1818.44
+margin_right = 2061.81
+margin_bottom = 1899.44
+custom_fonts/font = SubResource( 2 )
+text = "00"
+align = 1
+valign = 1
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="body_entered" from="Teleports/Left" to="." method="_on_LeftTp_body_entered"]
 [connection signal="body_entered" from="Teleports/Right" to="." method="_on_RightTp_body_entered"]
