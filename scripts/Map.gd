@@ -13,10 +13,16 @@ func reset():
 	get_tree().call_group('eaten', 'reset')
 	
 func _labels_asw():
-	$Ansewers/AswBp.text = str($Pills/BigPill.get_ansewer())
-	$Ansewers/AswBp2.text = str($Pills/BigPill2.get_ansewer())
-	$Ansewers/AswBp3.text = str($Pills/BigPill3.get_ansewer())
-	$Ansewers/AswBp4.text = str($Pills/BigPill4.get_ansewer())
+	var labels = [$Ansewers/AswBp, $Ansewers/AswBp2, $Ansewers/AswBp3,
+					$Ansewers/AswBp4,]
+	var pills = [$Pills/BigPill, $Pills/BigPill2, $Pills/BigPill3,
+				$Pills/BigPill4,]
+	var ansewers = get_tree().get_nodes_in_group('ansewers')
+	for i in range(labels.size()):
+		if pills[i] in ansewers:
+			labels[i].text = str(pills[i].get_ansewer())
+		else:
+			labels[i].text = '00'
 
 func update_ansewers(ansewers):
 	var pills = get_tree().get_nodes_in_group('ansewers')

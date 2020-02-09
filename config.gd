@@ -15,11 +15,12 @@ var pillConfigs = {
 }
 
 var hudConfigs = {
-	'scoreboardNumberOfDigits': 8,
+	'scoreboardNumberOfDigits': 9,
 }
 
 var gameStatus = {
 	'playing': false,
+	'started': false,
 	'mode': 'default',
 }
 

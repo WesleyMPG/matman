@@ -54,6 +54,11 @@ func display_won_message():
 	timer.start(3)
 	timer.connect('timeout', self, 'hide_won_message')
 	$GameWon.visible = true
+	
+func display_pause():
+	var pause = $PausedGame
+	pause.visible = !pause.visible
+	$AnimationPlayer.play("paused")
 
 func hide_won_message():
 	$GameWon.visible = false
@@ -76,6 +81,12 @@ func update_tabuada_display(a, b):
 	else:
 		display = '0X0'
 	$TabuadaDisplay.text = display
+
+func play_correct_ansewer_animation():
+	$AnimationPlayer.play("right_ansewer")
+
+func play_wrong_ansewer_animation():
+	$AnimationPlayer.play("wrong_ansewer")
 
 func get_score():
 	return int($Scoreboard.text)

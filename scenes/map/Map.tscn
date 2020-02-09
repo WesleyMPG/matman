@@ -193,7 +193,6 @@ position = Vector2( 150.057, 450.085 )
 
 [node name="BigPill" parent="Pills" instance=ExtResource( 3 )]
 position = Vector2( 150.057, 250.145 )
-scale = Vector2( 1, 1 )
 
 [node name="Pill44" parent="Pills" instance=ExtResource( 4 )]
 position = Vector2( 450.027, 349.893 )
@@ -212,7 +211,6 @@ position = Vector2( 1450.36, 250.145 )
 
 [node name="BigPill2" parent="Pills" instance=ExtResource( 3 )]
 position = Vector2( 1750.12, 250.145 )
-scale = Vector2( 1, 1 )
 
 [node name="Pill45" parent="Pills" instance=ExtResource( 4 )]
 position = Vector2( 450.027, 149.689 )
@@ -366,7 +364,6 @@ position = Vector2( 1750.12, 149.994 )
 
 [node name="BigPill4" parent="Pills" instance=ExtResource( 3 )]
 position = Vector2( 1750.12, 1849.37 )
-scale = Vector2( 1, 1 )
 
 [node name="Pill130" parent="Pills" instance=ExtResource( 4 )]
 position = Vector2( 1750.12, 1450.09 )
@@ -394,7 +391,6 @@ position = Vector2( 849.953, 1849.37 )
 
 [node name="BigPill3" parent="Pills" instance=ExtResource( 3 )]
 position = Vector2( 150.057, 1849.37 )
-scale = Vector2( 1, 1 )
 
 [node name="Pill21" parent="Pills" instance=ExtResource( 4 )]
 position = Vector2( 1450.36, 1751.11 )

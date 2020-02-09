@@ -40,6 +40,7 @@ func reset():
 func start():
 	$Hud/Ready.visible = false
 	get_node('/root/config').gameStatus['playing'] = true
+	get_node('/root/config').gameStatus['started'] = true
 	_update_tabuada()
 
 func _on_Hud_messageHidden():
@@ -59,9 +60,11 @@ func _update_tabuada():
 func _on_Player_ansewered(ansewer):
 	var score = $Hud.get_score()
 	if ansewer == $Tabuada.ansewer:
-		$Hud.update_score(score)
+		$Hud.play_correct_ansewer_animation()
+		$Hud.update_score(score / 2)
 	elif ansewer == 0:
 		pass
 	else:
+		$Hud.play_wrong_ansewer_animation()
 		$Hud.update_score(-score / 5)
 	_update_tabuada()

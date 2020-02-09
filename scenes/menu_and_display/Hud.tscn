@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/fonts/ARCADE_N.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/Hud.gd" type="Script" id=2]
@@ -14,9 +14,60 @@ size = 32
 extra_spacing_char = 14
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=6]
+size = 41
+font_data = ExtResource( 1 )
+
 [sub_resource type="DynamicFont" id=3]
 size = 22
 font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "paused"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PausedGame:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "right_ansewer"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Scoreboard:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.235294, 0.807843, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0.235294, 0.807843, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0.235294, 0.807843, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0.235294, 0.807843, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "wrong_ansewer"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Scoreboard:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.890196, 0.00784314, 0.00784314, 1 ), Color( 1, 1, 1, 1 ), Color( 0.890196, 0.00784314, 0.00784314, 1 ), Color( 1, 1, 1, 1 ), Color( 0.890196, 0.00784314, 0.00784314, 1 ), Color( 1, 1, 1, 1 ), Color( 0.890196, 0.00784314, 0.00784314, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="Hud" type="Control"]
 anchor_right = 1.0
@@ -27,12 +78,12 @@ __meta__ = {
 }
 
 [node name="Scoreboard" type="Label" parent="."]
-margin_left = 71.0
+margin_left = 72.0
 margin_top = 8.13573
-margin_right = 274.0
+margin_right = 288.0
 margin_bottom = 34.1357
 custom_fonts/font = SubResource( 1 )
-text = "0000000"
+text = "000000000"
 max_lines_visible = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -44,6 +95,19 @@ margin_top = 8.13573
 margin_right = 508.698
 margin_bottom = 41.1357
 custom_fonts/font = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PausedGame" type="Label" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 256.913
+margin_top = 303.981
+margin_right = 496.913
+margin_bottom = 345.981
+custom_fonts/font = SubResource( 6 )
+text = "paused"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -79,3 +143,9 @@ texture = ExtResource( 3 )
 visible = false
 position = Vector2( 381.007, 367.048 )
 texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "paused"
+anims/paused = SubResource( 7 )
+anims/right_ansewer = SubResource( 4 )
+anims/wrong_ansewer = SubResource( 5 )

@@ -18,6 +18,13 @@ func _ready():
 func _process(delta):
 	if get_node('/root/config').gameStatus['playing'] and alive:
 		_movement(delta)
+	elif !alive:
+		pass
+	elif not get_node('/root/config').gameStatus['playing']:
+		$Sprite.play('walk')
+	else:
+		velocity = Vector2(0, 0)
+		$Sprite.stop()		
 		
 func _movement(delta):
 	var realWalkDistance = SPEED
@@ -64,5 +71,5 @@ func _on_Mouth_area_entered(area):
 			emit_signal("ansewered", area.get_ansewer())
 		else:
 			area.was_eaten()
-			emit_signal("justAteAPill", area)
+		emit_signal("justAteAPill", area)
 		
