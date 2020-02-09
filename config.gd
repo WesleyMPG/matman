@@ -3,6 +3,7 @@ extends Node
 var playerConfigs = {
 	'lives': 3, 
 	'speed': 400,
+	'alive': true,
 }
 
 var ghostConfigs = {

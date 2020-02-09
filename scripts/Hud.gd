@@ -52,17 +52,29 @@ func display_won_message():
 	timer.one_shot = true
 	add_child(timer)
 	timer.start(3)
-	timer.connect('timeout', self, 'hide_won_message')
+	timer.connect('timeout', self, '_hide_won_message')
 	$GameWon.visible = true
+
+func _hide_won_message():
+	$GameWon.visible = false
+	emit_signal('messageHidden')
+
+func display_lost_message():
+	var timer = Timer.new()
+	timer.one_shot = true
+	add_child(timer)
+	timer.start(3)
+	timer.connect('timeout', self, '_hide_lost_message')
+	$GameOver.visible = true
 	
+func _hide_lost_message():
+	$GameOver.visible = false
+	get_parent().get_parent()._on_Back_pressed()
+
 func display_pause():
 	var pause = $PausedGame
 	pause.visible = !pause.visible
 	$AnimationPlayer.play("paused")
-
-func hide_won_message():
-	$GameWon.visible = false
-	emit_signal('messageHidden')
 
 func update_player_lives(howManyLives):
 	if howManyLives > livesDisplayList.size():

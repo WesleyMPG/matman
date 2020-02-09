@@ -74,7 +74,6 @@ func _get_random_positions():
 
 func _randomize_positions(listOfAnsewers):
 	var newList = _fill_list_with_i_positions(ansewersRequired)
-	print(ansewersRequired / 2)
 	var positions = _get_random_positions()
 	var count
 	for i in range(ansewersRequired / 2):  # the minimum of ansewers required is 2

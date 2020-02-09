@@ -25,6 +25,9 @@ func _process(delta):
 	else:
 		velocity = Vector2(0, 0)
 		$Sprite.stop()		
+	if $Sprite.animation == 'death' and $Sprite.frame == 4:
+		restart()
+		emit_signal("gotHit", lives)
 		
 func _movement(delta):
 	var realWalkDistance = SPEED
@@ -49,16 +52,21 @@ func _movement(delta):
 func take_damage():
 	if alive:
 		alive = false
+		get_node('/root/config').playerConfigs['alive'] = false
 		$Sprite.play('death')
-		visible = false
+		$CollisionShape2D.disabled = true
+		$Body/CollisionShape2D.disabled = true
 		lives -= 1
-		emit_signal("gotHit", lives)
 
 func restart():
 	alive = true
+	get_node('/root/config').playerConfigs['alive'] = true
+	$CollisionShape2D.disabled = false
+	$Body/CollisionShape2D.disabled = false
 	$Sprite.play('idle')
 	visible = true
 	rotation_degrees = 90
+	velocity = Vector2(0, 0)
 
 func reset():
 	restart()
@@ -73,3 +81,8 @@ func _on_Mouth_area_entered(area):
 			area.was_eaten()
 		emit_signal("justAteAPill", area)
 		
+
+func _on_Body_body_entered(body):
+	if body.is_in_group('enemys'):
+		take_damage()
+		print('hello')
