@@ -7,7 +7,7 @@ var playerConfigs = {
 }
 
 var ghostConfigs = {
-	'speed': 90,
+	'speed': 200,
 	'speedPerLevel': 5,
 }
 

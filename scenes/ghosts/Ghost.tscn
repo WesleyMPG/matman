@@ -27,12 +27,14 @@ radius = 50.1726
 "enemys",
 ]]
 scale = Vector2( 0.3, 0.3 )
+collision_layer = 2
 script = ExtResource( 6 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 modulate = Color( 1, 0, 0, 1 )
 frames = SubResource( 2 )
 animation = "walk"
+frame = 1
 playing = true
 
 [node name="Eyes" type="Node2D" parent="."]
@@ -52,20 +54,21 @@ shape = SubResource( 1 )
 
 [node name="Down" type="RayCast2D" parent="Sensors"]
 enabled = true
+exclude_parent = false
 cast_to = Vector2( 0, 55 )
 
 [node name="Up" type="RayCast2D" parent="Sensors"]
-scale = Vector2( 1, -1 )
 enabled = true
-cast_to = Vector2( 0, 55 )
+exclude_parent = false
+cast_to = Vector2( 0, -55 )
 
 [node name="Left" type="RayCast2D" parent="Sensors"]
-rotation = -1.57079
 scale = Vector2( 1, -1 )
 enabled = true
-cast_to = Vector2( 0, 55 )
+exclude_parent = false
+cast_to = Vector2( -55, 0 )
 
 [node name="Right" type="RayCast2D" parent="Sensors"]
-rotation = -1.57079
 enabled = true
-cast_to = Vector2( 0, 55 )
+exclude_parent = false
+cast_to = Vector2( 55, 0 )
