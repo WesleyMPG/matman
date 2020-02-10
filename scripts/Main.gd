@@ -45,7 +45,8 @@ func _on_Back_pressed():
 	add_child(inst)
 	inst.connect('play_button_pressed', self, '_on_Menu_play_button_pressed')
 	inst.connect('exit_button_pressed', self, '_on_Menu_exit_button_pressed')
-	get_node('/root/config').gameStatus['started'] = false 
+	get_node('/root/config').gameStatus['started'] = false
+	get_node('/root/config').gameStatus['playing'] = false
 
 func _on_Pause_button_up():
 	$TopButtons/Pause/branco.visible = false

@@ -77,6 +77,7 @@ func display_pause():
 	$AnimationPlayer.play("paused")
 
 func update_player_lives(howManyLives):
+	print(howManyLives)
 	if howManyLives > livesDisplayList.size():
 		howManyLives = config.playerConfigs['lives']
 	for i in range(livesDisplayList.size()):

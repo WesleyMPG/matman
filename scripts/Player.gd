@@ -85,4 +85,3 @@ func _on_Mouth_area_entered(area):
 func _on_Body_body_entered(body):
 	if body.is_in_group('enemys'):
 		take_damage()
-		print('hello')

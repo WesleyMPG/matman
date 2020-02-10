@@ -28,7 +28,7 @@ func _game_won():
 	$Hud.display_won_message()
 
 func restart():
-	$Player.reset()
+	$Player.restart()
 	$Player.position = $Spawns/Player.position
 	var timer = Timer.new()
 	timer.one_shot = true
