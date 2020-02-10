@@ -59,7 +59,6 @@ func take_damage():
 		lives -= 1
 
 func restart():
-	alive = true
 	get_node('/root/config').playerConfigs['alive'] = true
 	$CollisionShape2D.disabled = false
 	$Body/CollisionShape2D.disabled = false

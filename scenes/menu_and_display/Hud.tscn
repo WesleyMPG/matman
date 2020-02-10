@@ -14,15 +14,15 @@ size = 32
 extra_spacing_char = 14
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=3]
 size = 41
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 22
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 resource_name = "paused"
 length = 0.8
 loop = true
@@ -39,8 +39,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "right_ansewer"
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Scoreboard:modulate")
 tracks/0/interp = 1
@@ -54,8 +53,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.235294, 0.807843, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0.235294, 0.807843, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0.235294, 0.807843, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0.235294, 0.807843, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "wrong_ansewer"
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Scoreboard:modulate")
 tracks/0/interp = 1
@@ -106,7 +104,7 @@ margin_left = 256.913
 margin_top = 303.981
 margin_right = 496.913
 margin_bottom = 345.981
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 3 )
 text = "paused"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -127,7 +125,7 @@ margin_left = 313.829
 margin_top = 448.645
 margin_right = 445.829
 margin_bottom = 474.645
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Ready!"
 max_lines_visible = 1
 __meta__ = {
@@ -146,6 +144,6 @@ texture = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "paused"
-anims/paused = SubResource( 7 )
-anims/right_ansewer = SubResource( 4 )
-anims/wrong_ansewer = SubResource( 5 )
+anims/paused = SubResource( 5 )
+anims/right_ansewer = SubResource( 6 )
+anims/wrong_ansewer = SubResource( 7 )

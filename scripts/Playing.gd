@@ -17,7 +17,7 @@ func _on_Player_gotHit(lives):
 	else:
 		restart()
 		get_node('/root/config').gameStatus['started'] = false
-		$Hud.update_player_lives(lives)
+	$Hud.update_player_lives(lives)
 
 func _end_game():
 	get_node('/root/config').gameStatus['playing'] = false
@@ -27,15 +27,24 @@ func _game_won():
 	get_node('/root/config').gameStatus['playing'] = false
 	$Hud.display_won_message()
 
+func ghosts_to_start():
+	var ghosts = $Ghosts.get_children()
+	var sps = $Spawns.get_children()
+	for i in ghosts.size():
+		ghosts[i].position = $Spawns/Ghosts.position
+
 func restart():
 	$Player.restart()
+	get_tree().call_group('enemys', 'change_alive')
 	$Player.position = $Spawns/Player.position
+	ghosts_to_start()
 	var timer = Timer.new()
 	timer.one_shot = true
 	add_child(timer)
+	timer.connect('timeout', self, 'start')
 	timer.start(3)
 	$Hud/Ready.visible = true
-	timer.connect('timeout', self, 'start')
+	
 
 func reset():
 	$Map.reset()
@@ -45,6 +54,8 @@ func start():
 	$Hud/Ready.visible = false
 	get_node('/root/config').gameStatus['playing'] = true
 	get_node('/root/config').gameStatus['started'] = true
+	get_tree().call_group('enemys', 'change_alive')
+	$Player.alive = true
 	_update_tabuada()
 
 func _on_Hud_messageHidden():
@@ -72,3 +83,6 @@ func _on_Player_ansewered(ansewer):
 		$Hud.play_wrong_ansewer_animation()
 		$Hud.update_score(-score / 5)
 	_update_tabuada()
+
+func get_nav2d():
+	return $Map.get_nav2d()

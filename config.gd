@@ -2,12 +2,12 @@ extends Node
 
 var playerConfigs = {
 	'lives': 3, 
-	'speed': 400,
+	'speed': 175,
 	'alive': true,
 }
 
 var ghostConfigs = {
-	'speed': 200,
+	'speed': 150,
 	'speedPerLevel': 5,
 }
 

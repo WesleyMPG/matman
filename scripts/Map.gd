@@ -23,6 +23,9 @@ func _labels_asw():
 			labels[i].text = str(pills[i].get_ansewer())
 		else:
 			labels[i].text = '00'
+	if pills.size() == 1:
+		for i in range(labels.size()):
+			labels[i].text = '00'
 
 func update_ansewers(ansewers):
 	var pills = get_tree().get_nodes_in_group('ansewers')
@@ -32,4 +35,8 @@ func update_ansewers(ansewers):
 			_labels_asw()
 	elif pills.size() == 1:
 		pills[0].update_ansewer(0)
-	#_labels_asw()
+		_labels_asw()
+
+func get_nav2d() -> Navigation2D:
+	var nav : Navigation2D = $Maps/Navigation2D
+	return nav
