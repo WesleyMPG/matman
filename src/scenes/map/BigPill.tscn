@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/scenes/map/Pill.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/scripts/BigPill.gd" type="Script" id=2]
+[ext_resource path="res://src/Assets/Sprites/bigPill.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Assets/fonts/ARCADE_N.TTF"
+
+[sub_resource type="DynamicFont" id=2]
+size = 35
+outline_color = Color( 0.0117647, 0.00392157, 0.00392157, 1 )
+font_data = SubResource( 1 )
+
+[node name="BigPill" groups=[
+"ansewers",
+] instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 3 )
+
+[node name="Ansewer" type="Label" parent="." index="2"]
+modulate = Color( 1, 0, 0, 1 )
+self_modulate = Color( 1, 0, 0, 1 )
+margin_left = -31.2119
+margin_top = -17.3359
+margin_right = 34.7881
+margin_bottom = 20.6641
+custom_fonts/font = SubResource( 2 )
+text = "00
+"
+align = 1
+valign = 1
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

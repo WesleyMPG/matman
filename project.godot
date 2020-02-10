@@ -16,12 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Matman"
-run/main_scene="res://scenes/Main.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://src/scenes/Main.tscn"
+config/icon="res://src/Assets/Sprites/pacman/pacman_life.png"
 
 [autoload]
 
-config="*res://config.gd"
+config="*res://src/config.gd"
 
 [display]
 
@@ -33,4 +33,4 @@ window/stretch/aspect="keep"
 
 [rendering]
 
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://src/default_env.tres"
